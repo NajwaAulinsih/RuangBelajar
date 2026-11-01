@@ -17,6 +17,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -43,7 +44,14 @@
         <activity
             android:name=".pertemuan_6.SixthActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".pertemuan_9.NinthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pertemuan_9.tutorial.TutorialMessageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

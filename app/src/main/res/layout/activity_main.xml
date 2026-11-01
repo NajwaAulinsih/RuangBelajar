@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F7F0E5">
 
+    <!-- TOOLBAR -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
         android:layout_width="0dp"
@@ -20,6 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- AREA KONTEN -->
     <FrameLayout
         android:id="@+id/contentContainer"
         android:layout_width="0dp"
@@ -29,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- BERANDA -->
         <ScrollView
             android:id="@+id/scrollHome"
             android:layout_width="match_parent"
@@ -41,24 +44,254 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
+                <!-- HEADER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_header_wave">
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Halo, Pengguna!"
+                        android:textColor="#FFFFFF"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Mau belajar apa hari ini?"
+                        android:textColor="#F7F0E5"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- CHIP GROUP FILTER ROOM -->
                 <TextView
-                    android:id="@+id/tvGreeting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Halo, Pengguna!"
+                    android:layout_marginBottom="8dp"
+                    android:text="Kategori Room"
                     android:textColor="#49372E"
-                    android:textSize="25sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupRoom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipSemua"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Semua"
+                            app:checkedIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAndroid"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Android"
+                            app:checkedIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipBasisData"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Basis Data"
+                            app:checkedIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAlgoritma"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Algoritma"
+                            app:checkedIconVisible="false" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <!-- GRID LAYOUT: TOPIK BELAJAR -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="18dp"
-                    android:text="Mau belajar apa hari ini?"
-                    android:textColor="#8B6B58"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Topik Belajar"
+                    android:textColor="#49372E"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
+                <GridLayout
+                    android:id="@+id/gridKategori"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2"
+                    android:alignmentMode="alignMargins"
+                    android:useDefaultMargins="true">
+
+                    <!-- TOPIK 1 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="#FAE5BA"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ViewBinding"
+                                android:textColor="#49372E"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pemrograman Android"
+                                android:textColor="#8B6B58"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- TOPIK 2 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="#F2D4C3"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SQL"
+                                android:textColor="#49372E"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basis Data"
+                                android:textColor="#8B6B58"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- TOPIK 3 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="#CFE5DE"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sorting"
+                                android:textColor="#49372E"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Algoritma"
+                                android:textColor="#49372E"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- TOPIK 4 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_columnWeight="1"
+                        app:cardBackgroundColor="#D6E0F5"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Searching"
+                                android:textColor="#49372E"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Algoritma"
+                                android:textColor="#49372E"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
+
+                <!-- DAFTAR ROOM -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Room Belajar"
+                    android:textColor="#49372E"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <!-- ROOM 1 -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardRoom1"
                     android:layout_width="match_parent"
@@ -119,6 +352,7 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- ROOM 2 -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardRoom2"
                     android:layout_width="match_parent"
@@ -179,6 +413,7 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- ROOM 3 -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardRoom3"
                     android:layout_width="match_parent"
@@ -239,6 +474,7 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- TOMBOL PERTEMUAN 6 -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnToSixth"
                     android:layout_width="match_parent"
@@ -248,8 +484,21 @@
                     app:backgroundTint="#B96F50"
                     app:cornerRadius="14dp" />
 
+                <!-- TOMBOL PERTEMUAN 9 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToNinth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="tambah room"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#B96F50"
+                    app:cornerRadius="14dp" />
+
             </LinearLayout>
         </ScrollView>
+
 
         <LinearLayout
             android:id="@+id/materialContent"
@@ -262,7 +511,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Materi Belajar"
+                android:text="Sumber Belajar"
                 android:textColor="#49372E"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -274,9 +523,9 @@
                 android:layout_marginTop="12dp"
                 android:divider="#E8D7C3"
                 android:dividerHeight="1dp" />
-
         </LinearLayout>
 
+        <!-- HALAMAN PROFIL -->
         <ScrollView
             android:id="@+id/profileContent"
             android:layout_width="match_parent"
@@ -317,12 +566,12 @@
                     android:textAllCaps="false"
                     app:backgroundTint="#B96F50"
                     app:cornerRadius="14dp" />
-
             </LinearLayout>
         </ScrollView>
 
     </FrameLayout>
 
+    <!-- BOTTOM NAVIGATION -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
